@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Mystery Solids | IB Chemistry Virtual Laboratory</title>
+<style>
+:root{--bg:#0b1425;--panel:#122039;--panel2:#182a46;--line:#314362;--text:#edf4ff;--muted:#a8b8d2;--teal:#58d9c1;--blue:#79b4ff;--amber:#ffd18c;--red:#ff9898;--good:#83e2b1;--shadow:0 18px 48px #02091566;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 5% 0%,#17335c 0,transparent 33%),radial-gradient(circle at 85% 40%,#102b41 0,transparent 36%),var(--bg);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);min-height:100vh}button,input,select{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.5}.shell{max-width:1240px;margin:auto;padding:25px 20px 70px}.masthead{display:flex;gap:16px;align-items:center;justify-content:space-between;margin-bottom:23px}.eyebrow{font-size:.75rem;letter-spacing:.18em;color:var(--teal);font-weight:800;text-transform:uppercase}.masthead h1{font-size:clamp(1.8rem,3.7vw,3rem);line-height:1.08;margin:7px 0}.sub{color:var(--muted);margin:6px 0}.tag{border:1px solid #496281;padding:7px 12px;border-radius:100px;font-size:.8rem;white-space:nowrap;background:#1c2c48}.progress{display:flex;gap:8px;margin:20px 0 25px}.progress span{height:6px;border-radius:6px;background:#2a3f61;flex:1}.progress span.on{background:linear-gradient(90deg,var(--blue),var(--teal))}.panel{background:linear-gradient(160deg,#182a47ed,#122039ef);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}.intro{padding:18px 22px;margin-bottom:18px}.intro p{margin:5px 0;color:var(--muted)}h2{font-size:1.33rem;margin:0 0 11px}h3{font-size:1.05rem;margin:0 0 10px}.lab{display:grid;grid-template-columns:245px minmax(0,1fr);gap:16px}.side,.bench,.notebook,.questions,.resultPanel{padding:18px}.vials{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.vial{position:relative;border:1px solid #506480;border-radius:13px;min-height:112px;background:linear-gradient(135deg,#203551,#16263e);color:var(--text);text-align:center;padding:11px 6px;user-select:none;touch-action:auto;transition:transform .15s,border-color .15s,background .15s}.vial:hover,.vial:focus-visible{transform:translateY(-2px);border-color:var(--teal);outline:none}.vial.active{border:2px solid var(--teal);background:#184444}.jar{display:block;font-size:2rem;filter:drop-shadow(0 4px 9px #020819)}.vial strong{font-size:1rem;display:block}.vial small{font-size:.72rem;color:var(--muted)}.hint{color:var(--muted);font-size:.86rem;margin:12px 0 0}.benchHead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}.chip{font-size:.77rem;color:var(--amber);border:1px solid #785c37;background:#3b3024;border-radius:30px;padding:3px 10px}.machines{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:15px}.machine{border:2px dashed #426081;background:#0c1b32;border-radius:16px;min-height:180px;padding:17px 12px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;transition:.2s}.machine.over,.machine:focus-visible{border-color:var(--teal);background:#1b4148;outline:none}.machine-icon{font-size:2.3rem;margin-bottom:4px}.loaded-sample{display:flex;align-items:center;gap:8px;margin:7px 0 12px;padding:7px 12px;border:1px solid #58d9c1;border-radius:10px;background:#163b43;color:#dffff8;font-weight:750}.loaded-sample .jar{font-size:1.55rem}.loaded-sample.empty{border-style:dashed;border-color:#526b88;background:#10243c;color:#9eb3ce;font-weight:500}.machine.has-sample{border-style:solid;border-color:#58d9c1}.machine button:disabled{opacity:.45}.machine strong{font-size:1rem}.machine p{font-size:.8rem;color:var(--muted);margin:4px 0 10px}.machine button,.primary,.secondary{border:0;border-radius:10px;padding:9px 14px;font-weight:750}.machine button,.secondary{background:#263d5c;color:var(--text);border:1px solid #486385}.machine button:hover,.secondary:hover{background:#365472}.primary{background:var(--teal);color:#082a2b}.primary:hover{background:#a0f2e3}.status{background:#0c192c;border:1px solid #3c5474;border-radius:12px;margin-top:15px;padding:13px 16px;min-height:72px}.status strong{color:var(--teal)}.status p{margin:5px 0 0;color:var(--muted)}.notebook{margin-top:16px;overflow:auto}.notebook table{border-collapse:collapse;width:100%;min-width:710px;font-size:.83rem;text-align:left}.notebook th,.notebook td{padding:11px 10px;border-bottom:1px solid #314461;vertical-align:top}.notebook th{background:#102038;color:#c3d6f2}.notebook td:first-child{font-weight:800;color:var(--teal)}.missing{color:#7186a3;font-style:italic}.notebook footer{margin-top:11px;color:var(--muted);font-size:.8rem}.questions,.resultPanel{margin-top:16px}.question{border-top:1px solid var(--line);padding:16px 0}.question:first-of-type{border-top:0}label{display:block;color:#d9e8fa;font-weight:650;margin:0 0 8px}.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.fields.two{grid-template-columns:repeat(2,minmax(0,1fr))}select,textarea{width:100%;background:#0b192d;color:var(--text);border:1px solid #5a7190;border-radius:9px;padding:10px}textarea{min-height:82px;resize:vertical}select:focus,textarea:focus{outline:2px solid var(--teal);outline-offset:2px}.feedback{margin:12px 0;padding:12px 14px;background:#2f3027;border:1px solid #80713d;border-radius:11px;color:#ffe7ae}.feedback.ok{background:#173d36;border-color:#3eae8a;color:#bcffea}.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:16px}.kicker{color:var(--teal);text-transform:uppercase;letter-spacing:.1em;font-size:.79rem;font-weight:800}.locked{opacity:.55}.hidden{display:none!important}.ratio{display:grid;grid-template-columns:1fr 1fr;gap:12px}.ratio > div{border:1px solid #50707f;background:#10313e;padding:18px;border-radius:12px;text-align:center}.ratio b{font-size:1.5rem;color:var(--teal)}.answers{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.answers > div{border:1px solid #3b6270;background:#112c38;padding:11px;text-align:center;border-radius:10px}.answers b{display:block;font-size:1.1rem;color:var(--teal)}.taskList{padding-left:1.4rem;color:#d3e2f4}.taskList li{margin:9px 0}.foot{color:#90a8c4;font-size:.8rem;margin:20px 0}.sr{position:absolute;clip:rect(0,0,0,0);height:1px;width:1px;overflow:hidden}#confetti{font-size:2rem;display:inline-block;margin-right:8px}@media(max-width:840px){.lab{grid-template-columns:1fr}.vials{grid-template-columns:repeat(5,minmax(0,1fr))}.vial{min-height:90px}.jar{font-size:1.65rem}.answers{grid-template-columns:repeat(3,1fr)}}@media(max-width:590px){.masthead{align-items:flex-start;flex-direction:column}.shell{padding:17px 12px 50px}.vials{grid-template-columns:repeat(3,1fr)}.machines,.fields,.fields.two,.ratio{grid-template-columns:1fr}.machine{min-height:147px}.answers{grid-template-columns:repeat(2,1fr)}}@media print{body{background:white;color:#111}.panel{box-shadow:none;border:1px solid #888;background:white}.status,.machine,.vial{color:#111;background:white}.hint,.sub,.intro p,.machine p{color:#333}.notebook td:first-child,.kicker{color:#333}.actions{display:none}}
+
+/* Chemistry IB presentation-inspired yellow / navy / graph-paper theme.
+   All laboratory state and checkpoint logic is unchanged from v3. */
+:root {
+  --bg:#f5f7f8; --panel:#ffffff; --panel2:#fff8dc;
+  --line:#d6dce2; --text:#173653; --muted:#536a7d;
+  --teal:#f6c841; --blue:#187db5; --amber:#9a6f00;
+  --red:#b54c47; --good:#136d57;
+  --shadow:0 10px 28px rgba(20,51,78,.10);
+  color-scheme:light;
+}
+body {
+  color:var(--text);
+  background-color:#f5f7f8;
+  background-image:
+    linear-gradient(rgba(23,67,100,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(23,67,100,.055) 1px,transparent 1px),
+    radial-gradient(circle at 100% 0%,rgba(255,222,89,.47) 0 190px,transparent 191px),
+    radial-gradient(circle at 0% 100%,rgba(255,222,89,.28) 0 170px,transparent 171px);
+  background-size:22px 22px,22px 22px,auto,auto;
+  background-attachment:fixed;
+}
+.masthead {border-bottom:3px solid #ffde59;padding-bottom:20px;}
+.masthead h1 {color:#003060;letter-spacing:.025em;font-weight:900;}
+.eyebrow,.kicker {color:#135e91;}
+.sub,.intro p,.hint,.machine p,.notebook footer,.foot {color:var(--muted);}
+.tag,.chip {background:#ffeb9b;color:#5f4800;border-color:#f0ca54;font-weight:750;}
+.progress span {background:#e2e7eb;}
+.progress span.on {background:linear-gradient(90deg,#ffde59,#ffc83c);}
+.panel {background:#ffffff;border:1px solid #dce1e6;box-shadow:var(--shadow);}
+.intro {border-left:6px solid #ffde59;background:linear-gradient(105deg,#fff8de,#ffffff 55%);}
+.side h2,.bench h2,.notebook h2,.questions h2,.resultPanel h2,h3 {color:#003060;}
+.vial {background:linear-gradient(135deg,#fffdf1,#fff1bd);color:#173653;border:1px solid #e8ce79;box-shadow:0 4px 9px rgba(117,86,10,.07);}
+.vial:hover,.vial:focus-visible {border-color:#cf9c12;}
+.vial.active {border:2px solid #e4ac11;background:#ffeb99;}
+.vial small {color:#667788;}
+.jar {filter:none;}
+.machine {background:#fbfcff;border:2px dashed #b2c5d5;}
+.machine.over,.machine:focus-visible {background:#fff5ce;border-color:#e6ac18;}
+.machine.has-sample {border:2px solid #e6ac18;background:#fffcf1;}
+.machine strong {color:#003060;}
+.loaded-sample {border-color:#d9a429;background:#fff0b8;color:#4f3c00;}
+.loaded-sample.empty {border-color:#b4c7d5;background:#f0f5fa;color:#60798d;}
+.machine button,.secondary {background:#003d6d;color:#ffffff;border:1px solid #003d6d;}
+.machine button:hover,.secondary:hover {background:#155a8c;}
+.primary {background:#ffde59;color:#142c3d;border:1px solid #e7ba31;}
+.primary:hover {background:#f4c72c;}
+.status {background:#eef6fb;border:1px solid #c2d8e7;}
+.status strong {color:#003060;}
+.status p {color:#425c6f;}
+.notebook th {background:#003c70;color:#fff;}
+.notebook th,.notebook td {border-bottom:1px solid #dee5eb;}
+.notebook td:first-child {color:#003c70;}
+.missing {color:#8796a0;}
+.question {border-top:1px solid #dce4e9;}
+label {color:#1e405d;}
+select,textarea,input {background:#ffffff;color:#14324d;border:1px solid #a9bdce;}
+input {width:100%;border-radius:9px;padding:10px;}
+select:focus,textarea:focus {outline-color:#f4c432;}
+.feedback {background:#fff3c8;border-color:#dbb64b;color:#674c04;}
+.feedback.ok {background:#e6f5ee;border-color:#75b69b;color:#125842;}
+.ratio > div {background:#fff8db;border-color:#e2c56b;}
+.ratio b,.answers b {color:#003c70;}
+.answers > div {background:#fff8df;border-color:#ead490;}
+.taskList {color:#304e65;}
+@media print {body {background:#fff;color:#111}.machine,.vial {background:#fff}}
+
+</style>
+</head>
+<body>
+<main class="shell">
+ <header class="masthead"><div><div class="eyebrow">IB Chemistry · Structure 2.1</div><h1>THE MYSTERY SOLIDS</h1><p class="sub">Virtual laboratory · Investigate evidence, not guesses</p></div><span class="tag">STUDENT LAB · OFFLINE READY</span></header>
+ <div class="progress" aria-label="Activity progress"><span id="progress1" class="on"></span><span id="progress2"></span><span id="progress3"></span></div>
+ <section class="panel intro"><div class="kicker" id="phaseCaption">Phase 1 / 3 — Gather evidence</div><p>You have five unknown solid samples, <b>A–E</b>. They are, in some order: <b>sodium chloride (NaCl), magnesium oxide (MgO), calcium chloride (CaCl₂), copper (Cu), and sucrose (C₁₂H₂₂O₁₁)</b>. Each identity is used exactly once.</p><p><b>How to investigate:</b> Drag a sample onto an instrument to load it, then press <i>Run test</i> to reveal the result. On tablets and keyboards, select a sample and tap an instrument to load it first. All outputs are <b>simulated, qualitative classroom data</b>, not actual measurements. Some tests cannot yield a usable result. Your notes update automatically.</p></section>
+ <section id="phase1">
+  <div class="lab">
+   <aside class="panel side"><h2>Sample rack</h2><div class="vials" id="samples"></div><p class="hint">Tip: tap a sample first, then choose a test. Drag-and-drop also works on desktop.</p><p class="hint" id="sampleSelected" aria-live="polite">Selected: none</p></aside>
+   <section class="panel bench"><div class="benchHead"><h2>Testing stations</h2><span class="chip">Virtual simulation · no chemicals handled</span></div><div class="machines" id="machines"></div><div class="status" role="status" aria-live="polite" id="status"><strong>Lab ready</strong><p>Choose a sample to begin your investigation.</p></div></section>
+  </div>
+  <section class="panel notebook"><h2>Laboratory notebook</h2><table><thead><tr><th>Sample</th><th>Heating / melting behaviour</th><th>Solid conductivity</th><th>Water solubility</th><th>Conductivity after adding water</th></tr></thead><tbody id="notebookBody"></tbody></table><footer>The evidence remains on screen as you test samples. Use the results to identify A, C and D; B and E will require an additional clue.</footer></section>
+  <section class="panel questions"><div class="kicker">Checkpoint 1 · Required to unlock the next clue</div><h2>What can you conclude from the evidence?</h2><p class="sub">You must have tested the relevant properties of each sample before you can submit this checkpoint. Unexplained guesses will not unlock the next stage.</p>
+  <div class="question"><h3>1. Identify the samples supported by distinctive evidence</h3><div class="fields"><div><label for="idA">Sample A</label><select id="idA"></select></div><div><label for="idC">Sample C</label><select id="idC"></select></div><div><label for="idD">Sample D</label><select id="idD"></select></div></div></div>
+  <div class="question"><h3>2. What is the scientifically justified conclusion for B and E?</h3><label for="ambiguity">Choose the best statement</label><select id="ambiguity"><option value="">Choose one…</option><option value="guess">B must be NaCl because NaCl dissolves in water.</option><option value="unknown">We cannot distinguish B and E with the evidence currently available.</option><option value="swap">B must be CaCl₂ because it contains more ions.</option><option value="neither">Neither B nor E is ionic.</option></select></div>
+  <div class="question"><h3>3. Explain your evidence</h3><label for="reason1">Explain which results identify A, C and D, and why the remaining pair is not yet distinguishable. (Write at least one sentence.)</label><textarea id="reason1" placeholder="For example: Sample ... because ... . Samples B and E ..."></textarea></div>
+  <div class="actions"><button class="primary" id="check1">Check evidence and unlock clue →</button><button class="secondary" id="clearTests">Reset laboratory tests</button></div><div class="feedback hidden" role="alert" id="feedback1"></div></section>
+ </section>
+ <section id="phase2" class="hidden"><div class="panel resultPanel"><div class="kicker">Phase 2 / 3 — New evidence unlocked</div><h2>Evidence card 2: ion composition</h2><p>The analysis technician reports the <b>molar ratio of chloride ions to metal cations</b> in each of the two dissolved salt samples. This is a new analysis, not a measurement from one of the four virtual stations.</p><div class="ratio"><div><span>Sample B</span><p><b>1 : 1</b></p><small>Cl⁻ : metal cations</small></div><div><span>Sample E</span><p><b>2 : 1</b></p><small>Cl⁻ : metal cations</small></div></div><div class="question"><h3>Complete the identification</h3><div class="fields two"><div><label for="idB">Sample B</label><select id="idB"></select></div><div><label for="idE">Sample E</label><select id="idE"></select></div></div></div><div class="question"><label for="reason2">How do ion charges and empirical formulas explain this conclusion?</label><textarea id="reason2" placeholder="NaCl contains ...; CaCl₂ contains ..."></textarea></div><div class="actions"><button class="primary" id="check2">Verify identities →</button><button class="secondary" id="back1">← Back to the lab</button></div><div class="feedback hidden" role="alert" id="feedback2"></div></div></section>
+ <section id="phase3" class="hidden"><div class="panel resultPanel"><div class="kicker">Phase 3 / 3 — Case closed</div><h2><span id="confetti">🔬</span> All five mystery solids identified!</h2><div class="answers" id="solutionCards"></div>
+ <h3 style="margin-top:24px">Final report — explain the ionic model</h3>
+ <p class="sub">Enter your group details and answer <b>all five questions</b>. The PDF will include the sample identities, evidence from both checkpoints and your written answers. Your work stays on this device.</p>
+ <div class="fields two"><div><label for="groupName">Group / student names</label><input id="groupName" type="text" maxlength="160" placeholder="Enter names for the report"></div><div><label for="className">Class (optional)</label><input id="className" type="text" maxlength="80" placeholder="e.g., IB Chemistry SL"></div></div>
+ <div class="question"><label for="exit1">1. Why does solid NaCl not conduct electricity, whereas molten or aqueous NaCl does?</label><textarea id="exit1" placeholder="Explain using the mobility of charged particles…"></textarea></div>
+ <div class="question"><label for="exit2">2. Predict the formula for calcium nitride using the charges of Ca²⁺ and N³⁻.</label><textarea id="exit2" placeholder="Show how the total charges balance…"></textarea></div>
+ <div class="question"><label for="exit3">3. Why is the melting point of MgO much higher than that of NaCl?</label><textarea id="exit3" placeholder="Discuss ionic charge, ion size and electrostatic attraction…"></textarea></div>
+ <div class="question"><label for="exit4">4. Evaluate: “All ionic compounds conduct electricity because they contain charged particles.”</label><textarea id="exit4" placeholder="Is this always correct? Explain…"></textarea></div>
+ <div class="question"><label for="exit5">5. Is the formula NaCl a formula for an individual molecule? Explain.</label><textarea id="exit5" placeholder="Think about the 3D lattice and empirical formula…"></textarea></div>
+ <div class="actions"><button class="primary" id="downloadPdf" type="button">📄 Generate PDF report</button><button class="secondary" id="copyReport" type="button">Copy investigation report</button><button class="secondary" id="restart" type="button">Restart from the beginning</button></div><p id="copyNotice" class="hint" role="status" aria-live="polite"></p></div></section>
+ <p class="foot">Teacher-created IB Chemistry learning simulation. The virtual tests are simplified illustrative data; not physical laboratory measurements, a substitute for safety assessment, or an official IB examination. Designed for local/offline use in a modern browser. No student responses are sent to a server.</p>
+</main>
+<script>
+'use strict';
+const identities={A:'MgO',B:'NaCl',C:'Cu',D:'Sucrose',E:'CaCl₂'};
+const names=['NaCl','MgO','CaCl₂','Cu','Sucrose'];
+const tests=[
+ {id:'melting',name:'Heating & melting',icon:'🌡️',desc:'Observe behaviour as temperature increases.'},
+ {id:'solid',name:'Solid conductivity',icon:'⚡',desc:'Connect a solid sample to a virtual circuit.'},
+ {id:'water',name:'Water solubility',icon:'💧',desc:'Add the sample to water and stir.'},
+ {id:'solution',name:'Solution conductivity',icon:'🔌',desc:'Check the aqueous mixture for current.'}
+];
+// Deliberately qualitative, illustrative simulated results, not reference laboratory measurements.
+const data={
+ A:{melting:'Very high melting point; remains solid in the simulated heating range.',solid:'Does not conduct as a solid.',water:'Only slightly soluble; most remains undissolved.',solution:'No reliable reading: too little solid dissolves for this simplified test.'},
+ B:{melting:'High melting point.',solid:'Does not conduct as a solid.',water:'Dissolves readily in water.',solution:'Aqueous solution conducts electricity.'},
+ C:{melting:'High melting point.',solid:'Conducts electricity as a solid.',water:'Does not dissolve in water.',solution:'Not applicable: no solution forms.'},
+ D:{melting:'Decomposes on strong heating; no stable melt observed.',solid:'Does not conduct as a solid.',water:'Dissolves in water.',solution:'Aqueous mixture does not conduct appreciably.'},
+ E:{melting:'High melting point.',solid:'Does not conduct as a solid.',water:'Dissolves readily in water.',solution:'Aqueous solution conducts electricity.'}
+};
+const observations={};for(const s of 'ABCDE')observations[s]={};
+let selected=null,phase=1;
+// Each station retains its loaded sample until Run test unloads that station.
+const loadedSamples={melting:null,solid:null,water:null,solution:null};
+const $=id=>document.getElementById(id);
+function makeOptions(id){$(id).innerHTML='<option value="">Select identity…</option>'+names.map(n=>`<option value="${n}">${n}</option>`).join('')}
+for(const id of ['idA','idB','idC','idD','idE'])makeOptions(id);
+function renderSamples(){
+ $('samples').innerHTML=[...'ABCDE'].map(s=>`<button type="button" class="vial ${selected===s?'active':''}" draggable="true" data-sample="${s}" aria-pressed="${selected===s}"><span class="jar" aria-hidden="true">🧪</span><strong>Sample ${s}</strong><small>Unknown solid</small></button>`).join('');
+ for(const btn of $('samples').querySelectorAll('.vial')){
+  const s=btn.dataset.sample;
+  btn.addEventListener('click',()=>selectSample(s));
+  btn.addEventListener('dragstart',e=>{selectSample(s);e.dataTransfer.setData('text/plain',s);e.dataTransfer.effectAllowed='copy'});
+ }
+}
+function renderMachines(){
+ $('machines').innerHTML=tests.map(t=>`<div class="machine" data-test="${t.id}" tabindex="0" role="group" aria-label="${t.name} station; select a sample and activate this station to load it"><span class="machine-icon" aria-hidden="true">${t.icon}</span><strong>${t.name}</strong><p>${t.desc}</p><div class="loaded-sample empty" data-loaded="${t.id}" aria-live="polite">Drop a sample here</div><button type="button" data-run="${t.id}" disabled>Run test</button></div>`).join('');
+ for(const div of $('machines').querySelectorAll('.machine')){
+  const id=div.dataset.test;
+  div.addEventListener('dragover',e=>{e.preventDefault();div.classList.add('over')});
+  div.addEventListener('dragleave',e=>{if(!div.contains(e.relatedTarget))div.classList.remove('over')});
+  div.addEventListener('drop',e=>{e.preventDefault();div.classList.remove('over');const s=e.dataTransfer.getData('text/plain');if('ABCDE'.includes(s)&&s.length===1)loadSample(s,id)});
+  div.querySelector('button').addEventListener('click',e=>{e.stopPropagation();runTest(loadedSamples[id],id)});
+  div.addEventListener('click',e=>{if(e.target.closest('button'))return;if(selected)loadSample(selected,id)});
+  div.addEventListener('keydown',e=>{if(e.target===div&&(e.key==='Enter'||e.key===' ')){e.preventDefault();if(selected)loadSample(selected,id)}});
+ }
+}
+function loadSample(s,id){
+ if(phase!==1)return;
+ loadedSamples[id]=s;
+ const station=$('machines').querySelector(`[data-test="${id}"]`);
+ const slot=station.querySelector('[data-loaded]');
+ slot.classList.remove('empty');
+ slot.innerHTML=`<span class="jar" aria-hidden="true">🧪</span><span>Sample ${s} loaded</span>`;
+ station.classList.add('has-sample');
+ station.querySelector('[data-run]').disabled=false;
+ const t=tests.find(x=>x.id===id);
+ $('status').innerHTML=`<strong>Sample ${s} is ready</strong><p>Sample ${s} has been placed at the ${t.name} station. Press Run test to see the result.</p>`;
+}
+function resetMachines(){
+ for(const id of Object.keys(loadedSamples))loadedSamples[id]=null;
+ renderMachines();
+}
+function selectSample(s){selected=s;$('sampleSelected').textContent=`Selected: Sample ${s}`;renderSamples()}
+function runTest(s,id){
+ if(phase!==1)return;
+ if(!s){$('status').innerHTML='<strong>Choose a sample first</strong><p>Select a vial on the sample rack, then run this test.</p>';return}
+ observations[s][id]=data[s][id];updateNotebook();
+ const t=tests.find(x=>x.id===id);
+ // After the test, unload only this station. Keep the result in the notebook.
+ loadedSamples[id]=null;
+ const station=$('machines').querySelector(`[data-test="${id}"]`);
+ const slot=station.querySelector('[data-loaded]');
+ slot.classList.add('empty');
+ slot.textContent='Drop a sample here';
+ station.classList.remove('has-sample');
+ station.querySelector('[data-run]').disabled=true;
+ $('status').innerHTML=`<strong>Sample ${s} · ${t.name}</strong><p>${data[s][id]}</p>`;
+}
+function updateNotebook(){
+ $('notebookBody').innerHTML=[...'ABCDE'].map(s=>`<tr><td>${s}</td>${tests.map(t=>`<td>${observations[s][t.id]||'<span class="missing">Not tested</span>'}</td>`).join('')}</tr>`).join('')}
+function feedback(el,good,msg){el.className='feedback'+(good?' ok':'');el.textContent=msg;el.scrollIntoView({block:'nearest',behavior:'smooth'})}
+function showPhase(n){phase=n;$('phase1').classList.toggle('hidden',n!==1);$('phase2').classList.toggle('hidden',n!==2);$('phase3').classList.toggle('hidden',n!==3);for(let i=1;i<=3;i++)$('progress'+i).classList.toggle('on',i<=n);$('phaseCaption').textContent=['','Phase 1 / 3 — Gather evidence','Phase 2 / 3 — Interpret new evidence','Phase 3 / 3 — Scientific explanation'][n];window.scrollTo({top:0,behavior:'smooth'})}
+$('check1').addEventListener('click',()=>{
+ // Require every sample to have been investigated in at least two complementary ways; key distinctive test per identifying sample.
+ const count=Object.values(observations).reduce((a,o)=>a+Object.keys(o).length,0);
+ const enough=count>=12 && observations.A.melting&&observations.A.water&&observations.C.solid&&observations.D.solution&&observations.B.solution&&observations.E.solution;
+ if(!enough){feedback($('feedback1'),false,'Gather more evidence first: complete at least 12 sample–instrument tests, including A heating and solubility, C solid conductivity, D solution conductivity, and B/E solution conductivity.');return}
+ if($('idA').value!=='MgO'||$('idC').value!=='Cu'||$('idD').value!=='Sucrose'){feedback($('feedback1'),false,'At least one identity is not supported. Re-examine heating behaviour, solid conductivity and aqueous conductivity, then try again.');return}
+ if($('ambiguity').value!=='unknown'){feedback($('feedback1'),false,'Think scientifically: do B and E show any differentiating result in the tests you have performed?');return}
+ const reason=$('reason1').value.trim();if(reason.length<45||!/[a-e]/i.test(reason)){feedback($('feedback1'),false,'Add a brief explanation using the observed properties and the unresolved B/E ambiguity before moving on.');return}
+ showPhase(2)
+});
+$('clearTests').addEventListener('click',()=>{if(!confirm('Clear all simulated observations and restart the tests?'))return;for(const s of 'ABCDE')observations[s]={};selected=null;renderSamples();resetMachines();updateNotebook();$('sampleSelected').textContent='Selected: none';$('status').innerHTML='<strong>Lab reset</strong><p>Select a sample to investigate.</p>'});
+$('check2').addEventListener('click',()=>{if($('idB').value!=='NaCl'||$('idE').value!=='CaCl₂'){feedback($('feedback2'),false,'Check the formula ratios: one compound has one Cl⁻ per metal cation; the other has two.');return}const r=$('reason2').value.trim().toLowerCase();if(r.length<25||(!r.includes('1')&&!r.includes('one'))){feedback($('feedback2'),false,'Explain the ion ratio of each salt in words or using its chemical formula.');return} $('solutionCards').innerHTML=[...'ABCDE'].map(s=>`<div><span>Sample ${s}</span><b>${identities[s]}</b></div>`).join('');showPhase(3)});
+$('back1').addEventListener('click',()=>showPhase(1));
+$('restart').addEventListener('click',()=>{if(!confirm('Restart this investigation and clear all answers?'))return;for(const s of 'ABCDE')observations[s]={};selected=null;renderSamples();updateNotebook();for(const id of ['idA','idB','idC','idD','idE','ambiguity'])$(id).value='';for(const id of ['reason1','reason2','groupName','className','exit1','exit2','exit3','exit4','exit5'])$(id).value='';$('feedback1').classList.add('hidden');$('feedback2').classList.add('hidden');$('status').innerHTML='<strong>Lab ready</strong><p>Choose a sample to begin.</p>';$('sampleSelected').textContent='Selected: none';showPhase(1)});
+const finalQuestions=[
+ 'Why does solid NaCl not conduct electricity, whereas molten or aqueous NaCl does?',
+ 'Predict the formula for calcium nitride using the charges of Ca2+ and N3-.',
+ 'Why is the melting point of MgO much higher than that of NaCl?',
+ 'Evaluate: "All ionic compounds conduct electricity because they contain charged particles."',
+ 'Is the formula NaCl a formula for an individual molecule? Explain.'
+];
+function reportData(){return {
+ names:$('groupName').value.trim(), className:$('className').value.trim(),
+ identities:{...identities}, reasoning1:$('reason1').value.trim(),reasoning2:$('reason2').value.trim(),
+ answers:finalQuestions.map((question,i)=>({question,answer:$('exit'+(i+1)).value.trim()})),
+ observations:[...'ABCDE'].map(sample=>({sample,tests:tests.map(test=>({name:test.name,result:observations[sample][test.id]||'Not tested'}))}))
+}}
+function plainReport(r){return [
+ 'THE MYSTERY SOLIDS — STUDENT REPORT',
+ 'Group: '+r.names,'Class: '+(r.className||'—'),'',
+ 'Sample identities:', ...Object.entries(r.identities).map(([s,n])=>'Sample '+s+': '+n),'',
+ 'Phase 1 — Evidence-based reasoning:',r.reasoning1,'',
+ 'Phase 2 — Composition evidence:',r.reasoning2,'',
+ 'Final questions:',...r.answers.flatMap((a,i)=>[(i+1)+'. '+a.question,a.answer||'[Not answered]','']),
+ 'Simulated laboratory observations:',...r.observations.flatMap(o=>['Sample '+o.sample,...o.tests.map(t=>'  '+t.name+': '+t.result)]),
+ '', 'Teacher-created simulated investigation. All observations are illustrative, not actual measurements.'
+ ].join('\n')}
+function pdfDataIsValid(){
+ if(!$('groupName').value.trim()){ $('copyNotice').textContent='Please enter the group / student names before generating the PDF.';$('groupName').focus();return false }
+ for(let i=1;i<=5;i++){if(!$('exit'+i).value.trim()){$('copyNotice').textContent=`Please answer question ${i} before generating the PDF.`;$('exit'+i).focus();return false}}
+ return true;
+}
+// Self-contained PDF generator: browser canvas renders Unicode text onto A4 pages,
+// then a small PDF writer embeds each page as a JPEG. No external libraries or server.
+function createPdfBlob(report){
+ const PAGE_W=595.28, PAGE_H=841.89, SCALE=2;
+ const canvas=document.createElement('canvas'); canvas.width=Math.round(PAGE_W*SCALE);canvas.height=Math.round(PAGE_H*SCALE);
+ const ctx=canvas.getContext('2d');if(!ctx)throw Error('Canvas unavailable');
+ const margin=48; let y=0;let page=0;const pages=[];
+ const paper='#ffffff', ink='#17304a', muted='#536779', yellow='#ffde59', navy='#003060';
+ const pdfAscii=t=>String(t).replace(/\s+/g,' ').trim();
+ function font(px=11,bold=false){ctx.font=`${bold?'700':'400'} ${px}px Arial, Helvetica, sans-serif`}
+ function drawHeader(){
+  ctx.setTransform(SCALE,0,0,SCALE,0,0);ctx.fillStyle=paper;ctx.fillRect(0,0,PAGE_W,PAGE_H);
+  ctx.fillStyle=yellow;ctx.fillRect(0,0,PAGE_W,70);
+  ctx.fillStyle=navy;font(19,true);ctx.fillText('THE MYSTERY SOLIDS',margin,33);
+  font(10,false);ctx.fillText('IB Chemistry  |  Structure 2.1  |  Investigation report',margin,51);
+  ctx.fillStyle=muted;font(9,false);ctx.fillText('Teacher-created activity  |  Simulated results',margin,PAGE_H-28);
+  ctx.fillText('Page '+(page+1),PAGE_W-margin-42,PAGE_H-28);
+  y=95;
+ }
+ function pushPage(){if(page===0 && y===0)return;pages.push(canvas.toDataURL('image/jpeg',0.91).split(',')[1]);page++}
+ function need(h){if(y+h>PAGE_H-60){pushPage();drawHeader()}}
+ function writeLine(line,{size=11,bold=false,color=ink,indent=0,spacing=5}={}){
+  const lineH=size*1.42;need(lineH+spacing);font(size,bold);ctx.fillStyle=color;
+  ctx.fillText(line,margin+indent,y);y+=lineH+spacing;
+ }
+ function wrapped(text,{size=11,bold=false,color=ink,indent=0,spacing=4}={}){
+  const width=PAGE_W-2*margin-indent;
+  const paras=String(text||'—').replace(/\r/g,'').split('\n');
+  for(const para of paras){
+   const words=(para.trim()||'—').split(/\s+/), lines=[];let line='';
+   font(size,bold);
+   for(const word of words){
+    let tryLine=line?line+' '+word:word;
+    if(ctx.measureText(tryLine).width<=width){line=tryLine;continue}
+    if(line){lines.push(line);line=''}
+    // Break very long words safely to avoid margin clipping.
+    let chunk='';for(const char of word){if(ctx.measureText(chunk+char).width>width&&chunk){lines.push(chunk);chunk=''}chunk+=char}line=chunk;
+   }
+   if(line)lines.push(line);
+   for(const l of lines)writeLine(l,{size,bold,color,indent,spacing:0});
+   y+=spacing+3;
+  }
+ }
+ function section(title){need(34);y+=9;ctx.fillStyle=navy;font(13,true);ctx.fillText(title,margin,y);y+=13;ctx.fillStyle='#d4dee6';ctx.fillRect(margin,y,PAGE_W-margin*2,1);y+=13}
+ function label(text){wrapped(text,{size:10,bold:true,color:navy,spacing:2})}
+ drawHeader();
+ section('Student and group');
+ wrapped('Group / names: '+report.names,{bold:true});
+ wrapped('Class: '+(report.className||'Not specified'));
+ section('Identification of the five samples');
+ for(const [s,name] of Object.entries(report.identities))wrapped('Sample '+s+'  —  '+name,{bold:true,spacing:1});
+ section('Phase 1 — Evidence-based reasoning');wrapped(report.reasoning1);
+ section('Phase 2 — New composition evidence');wrapped(report.reasoning2);
+ section('Final questions and student responses');
+ report.answers.forEach((a,i)=>{need(52);label((i+1)+'. '+a.question);wrapped(a.answer,{indent:8,spacing:10})});
+ section('Laboratory notebook — simulated observations');
+ for(const item of report.observations){need(40);wrapped('Sample '+item.sample,{bold:true,color:navy,spacing:2});
+  for(const test of item.tests)wrapped(test.name+': '+test.result,{size:9,indent:9,spacing:1});y+=5;
+ }
+ wrapped('All findings above come from a classroom simulation. These are not experimental measurements.',{size:9,color:muted});
+ pushPage();
+ // Assemble minimal PDF 1.4 (one JPEG image XObject per page).
+ const enc=new TextEncoder();const chunks=[];let offset=0;const offsets=[0];
+ const addBytes=bytes=>{chunks.push(bytes);offset+=bytes.length};
+ const addStr=str=>addBytes(enc.encode(str));
+ const addObj=(num,body,stream)=>{
+  offsets[num]=offset;addStr(`${num} 0 obj\n${body}`);
+  if(stream){addStr('\nstream\n');addBytes(stream);addStr('\nendstream')}
+  addStr('\nendobj\n');
+ };
+ const jpgs=pages.map(b64=>Uint8Array.from(atob(b64),c=>c.charCodeAt(0)));
+ addStr('%PDF-1.4\n%\xC2\xB5\xC2\xB6\n');
+ const kids=jpgs.map((_,i)=>3+i*3);
+ addObj(1,'<< /Type /Catalog /Pages 2 0 R >>');
+ addObj(2,`<< /Type /Pages /Kids [${kids.map(k=>k+' 0 R').join(' ')}] /Count ${kids.length} >>`);
+ jpgs.forEach((jpeg,i)=>{
+  const p=3+i*3, img=p+1, content=p+2, imgName='Im1';
+  addObj(p,`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${PAGE_W} ${PAGE_H}] /Resources << /XObject << /${imgName} ${img} 0 R >> >> /Contents ${content} 0 R >>`);
+  addObj(img,`<< /Type /XObject /Subtype /Image /Width ${canvas.width} /Height ${canvas.height} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpeg.length} >>`,jpeg);
+  const str=`q\n${PAGE_W} 0 0 ${PAGE_H} 0 0 cm\n/${imgName} Do\nQ\n`,bytes=enc.encode(str);
+  addObj(content,`<< /Length ${bytes.length} >>`,bytes);
+ });
+ const xref=offset;addStr(`xref\n0 ${offsets.length}\n0000000000 65535 f \n`);
+ for(let i=1;i<offsets.length;i++)addStr(String(offsets[i]).padStart(10,'0')+' 00000 n \n');
+ addStr(`trailer\n<< /Size ${offsets.length} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF`);
+ return new Blob(chunks,{type:'application/pdf'});
+}
+$('downloadPdf').addEventListener('click',()=>{
+ if(!pdfDataIsValid())return;
+ try{const blob=createPdfBlob(reportData()), url=URL.createObjectURL(blob);
+  const a=document.createElement('a');a.href=url;
+  a.download='The_Mystery_Solids_'+($('groupName').value.trim().replace(/[^a-zA-Z0-9]+/g,'_').slice(0,35)||'Group')+'.pdf';
+  document.body.appendChild(a);a.click();a.remove();
+  $('copyNotice').textContent='PDF report generated. Check your Downloads folder.';
+  setTimeout(()=>URL.revokeObjectURL(url),60000);
+ }catch(e){console.error(e);$('copyNotice').textContent='Could not generate a PDF in this browser. Try Copy investigation report instead.'}
+});
+$('copyReport').addEventListener('click',async()=>{
+ const report=plainReport(reportData());
+ try{await navigator.clipboard.writeText(report);$('copyNotice').textContent='Report copied. Paste into your class document.'}
+ catch(e){const t=document.createElement('textarea');t.value=report;document.body.appendChild(t);t.select();try{document.execCommand('copy');$('copyNotice').textContent='Report copied.'}catch(_){$('copyNotice').textContent='Copy unavailable in this browser.'}t.remove()}
+});
+renderSamples();renderMachines();updateNotebook();
+</script>
+</body>
+</html>
